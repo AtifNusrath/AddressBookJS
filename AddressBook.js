@@ -207,6 +207,11 @@ function getCountByState(contactArray, stateName) {
     let count = contactArray.filter(contact => contact.state == stateName).reduce((a, b) => a.concat(b), []).length;
     console.log("Number of contacts living in this state are: " + count);
 }
+
+function sortedContacts(contactArray) {
+        console.log('\nSorted contacts');
+        console.log(contactArray.sort((a,b)=>a.firstName.localeCompare(b.firstName)));
+}
 try {
     addressBookArray.push(new Contact("Sachin", "Tendulkar", "Jayanagar", "Bangalore", "Karnataka", 560001, "91 9876543210", "sachin@gmail.com"));
 } catch (e) {
@@ -236,3 +241,4 @@ isPresentInState(addressBookArray,"Mohammed","Karnataka");
 isPresentInCity(addressBookArray,"Virender","Bangalore");
 getCountByCity(addressBookArray, "Bangalore");
 getCountByState(addressBookArray, "Karnataka");
+sortedContacts(addressBookArray);
