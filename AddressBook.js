@@ -197,6 +197,16 @@ function isPresentInCity(contactArray, name, cityName) {
    console.log(contact.toString());
     
 }
+
+function getCountByCity(contactArray, cityName) {
+    let count = contactArray.filter(contact => contact.city == cityName).reduce((a, b) => a.concat(b), []).length;
+    console.log("Number of contacts living in this city are: " + count);
+}
+
+function getCountByState(contactArray, stateName) {
+    let count = contactArray.filter(contact => contact.state == stateName).reduce((a, b) => a.concat(b), []).length;
+    console.log("Number of contacts living in this state are: " + count);
+}
 try {
     addressBookArray.push(new Contact("Sachin", "Tendulkar", "Jayanagar", "Bangalore", "Karnataka", 560001, "91 9876543210", "sachin@gmail.com"));
 } catch (e) {
@@ -224,3 +234,5 @@ searchByCityOrState(addressBookArray,'Bangalore');
 searchByCityOrState(addressBookArray,'Karnataka');
 isPresentInState(addressBookArray,"Mohammed","Karnataka");
 isPresentInCity(addressBookArray,"Virender","Bangalore");
+getCountByCity(addressBookArray, "Bangalore");
+getCountByState(addressBookArray, "Karnataka");
